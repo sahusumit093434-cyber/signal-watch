@@ -1,5 +1,7 @@
 # SignalWatch — Company Risk Intelligence Platform
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/sahusumit093434-cyber/signal-watch)
+
 SignalWatch is a data engineering and API service that ingests messy public-event feeds, validates and cleanses them, computes analytical risk scores for companies using Apache Spark, and exposes the intelligence via a high-performance REST API.
 
 ---
@@ -80,7 +82,7 @@ signalwatch/
 
 3. **Install Dependencies**:
    ```bash
-   pip install -r requirements.txt
+   pip install -r requirements-local.txt
    ```
 
 4. **Run Unit Tests**:
