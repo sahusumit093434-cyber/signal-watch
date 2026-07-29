@@ -9,3 +9,5 @@ metastore_db/
 .DS_Store
 jdk/
 *.log
+
+.vercel
