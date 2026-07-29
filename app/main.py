@@ -4,6 +4,7 @@ import os
 from datetime import datetime
 from typing import Optional, List
 from fastapi import FastAPI, HTTPException, Query, status
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 
 from app.config import (
@@ -294,3 +295,8 @@ def get_events(
             raise HTTPException(status_code=400, detail=f"Invalid end_date format. Use ISO format: {e}")
 
     return results
+
+@app.get("/", include_in_schema=False)
+def root_redirect():
+    """Redirects the root URL to the interactive Swagger UI page (/docs)."""
+    return RedirectResponse(url="/docs")
