@@ -215,5 +215,26 @@ When duplicate events are identified, we keep only the single **highest-quality 
 
 ---
 
+## 10. Production Deployment
+
+This project includes a `Dockerfile` setup designed for containerized deployment in the cloud (such as **Render Web Services**, **Railway**, or **Fly.io**).
+
+### Deployment Steps (e.g. Render)
+1. Go to [Render Dashboard](https://dashboard.render.com).
+2. Click **New** -> **Web Service**.
+3. Connect your GitHub repository: `https://github.com/sahusumit093434-cyber/signal-watch.git`.
+4. Render will automatically detect the `Dockerfile` in the root. 
+5. Set:
+   * **Runtime**: `Docker`
+   * **Instance Type**: Select at least 2 GB of RAM (PySpark requires memory for JVM initialization).
+6. Click **Deploy Web Service**.
+
+When deployed, the container starts:
+1. The **Mock API Server** on background port `9000` (serving paginated events).
+2. The **FastAPI API Service** on foreground port `8000` (routing queries for companies, scores, and events).
+
+---
+
 ## AI Tools Used
 * **Gemini 3.5 Flash** (via Antigravity assistant) for planning layouts, designing Spark window aggregations, structuring Python class divisions, and writing test scenarios.
+
