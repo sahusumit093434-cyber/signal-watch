@@ -1,0 +1,8 @@
+pyspark==3.5.1
+pandas
+fastapi
+uvicorn
+requests
+numpy
+matplotlib
+pytest

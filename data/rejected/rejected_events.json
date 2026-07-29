@@ -1,0 +1,98 @@
+[
+  {
+    "event_id": "EVT-1146",
+    "company_name": "Orchid Textiles",
+    "category": "supply_chain",
+    "severity": 7,
+    "confidence": 0.7,
+    "published_at": "June 13, 2026",
+    "country": "Australia",
+    "source": "Market Signals Digest",
+    "description": "A component shortage forced a production slowdown across three southern states.",
+    "rejection_reason": "Invalid severity value: '7'"
+  },
+  {
+    "event_id": "EVT-1144",
+    "company_name": null,
+    "category": "supplychain",
+    "severity": "3",
+    "confidence": 0.7,
+    "published_at": "13-06-2026",
+    "country": "United States",
+    "source": "Market Signals Digest",
+    "description": "Port congestion in two key districts delayed inbound shipments by several weeks.",
+    "rejection_reason": "Company name is required and cannot be blank"
+  },
+  {
+    "event_id": "EVT-1147",
+    "company_name": "Zephyr Chemicals",
+    "category": "legal_regulatory",
+    "severity": "high",
+    "confidence": 0.7,
+    "published_at": "July 09, 2026",
+    "country": "Singapore",
+    "source": "National Filings Registry",
+    "description": "An environmental clearance for a facility was placed under review.",
+    "rejection_reason": "Invalid severity value: 'high'"
+  },
+  {
+    "event_id": "EVT-1143",
+    "company_name": "",
+    "category": "cybersecurity",
+    "severity": 2,
+    "confidence": 0.7,
+    "published_at": "2026-07-20T20:00:00Z",
+    "country": "Australia",
+    "source": "National Filings Registry",
+    "description": "Customer records were exposed following a misconfiguration in an internal billing platform.",
+    "rejection_reason": "Company name is required and cannot be blank"
+  },
+  {
+    "event_id": "EVT-1145",
+    "company_name": "Cobalt Financial Group",
+    "category": "financial",
+    "severity": 0,
+    "confidence": 0.7,
+    "published_at": "09-07-2026",
+    "country": "uae",
+    "source": "Open Corporate Records",
+    "description": "A planned fundraise of roughly 12 percent of annual revenue was withdrawn before pricing.",
+    "rejection_reason": "Invalid severity value: '0'"
+  },
+  {
+    "event_id": "EVT-1149",
+    "company_name": "Silverline Telecom",
+    "category": "leadership",
+    "severity": "1",
+    "confidence": "-0.2",
+    "published_at": "09-07-2026",
+    "country": "Germany",
+    "source": "Public Business Monitor",
+    "description": "The board announced an unplanned transition for the chief compliance officer position.",
+    "rejection_reason": "Invalid confidence value: '-0.2'"
+  },
+  {
+    "event_id": "EVT-1148",
+    "company_name": "Peregrine Capital",
+    "category": "fraud_reputation",
+    "severity": "5",
+    "confidence": "1.4",
+    "published_at": "2026-06-13T04:45:00Z",
+    "country": "India",
+    "source": "Regional Trade Wire",
+    "description": "Whistleblower allegations of expense irregularities were made public.",
+    "rejection_reason": "Invalid confidence value: '1.4'"
+  },
+  {
+    "event_id": "EVT-1150",
+    "company_name": "Cedarwood Foods",
+    "category": "financial",
+    "severity": "4",
+    "confidence": "0.7",
+    "published_at": "not-a-date",
+    "country": "United States",
+    "source": "Public Business Monitor",
+    "description": "A credit rating agency revised the outlook to negative.",
+    "rejection_reason": "Unsupported date format: 'not-a-date'"
+  }
+]
