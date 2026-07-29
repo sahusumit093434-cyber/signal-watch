@@ -1,0 +1,14 @@
+.venv/
+jdk/
+.git/
+__pycache__/
+*.pyc
+.pytest_cache/
+spark-warehouse/
+derby.log
+metastore_db/
+.ipynb_checkpoints/
+.DS_Store
+*.log
+data/raw/
+outputs/
