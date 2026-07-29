@@ -3,12 +3,19 @@ import sys
 
 # Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+IS_VERCEL = os.environ.get("VERCEL") == "1" or os.environ.get("VERCEL") is not None
+
+# Writable root: on Vercel, it must be /tmp
+WRITABLE_ROOT = "/tmp" if IS_VERCEL else BASE_DIR
+
 DATA_DIR = os.path.join(BASE_DIR, "data")
 RAW_DATA_DIR = os.path.join(DATA_DIR, "raw")
-CLEANED_DATA_DIR = os.path.join(DATA_DIR, "cleaned")
-REJECTED_DATA_DIR = os.path.join(DATA_DIR, "rejected")
-PROCESSED_DATA_DIR = os.path.join(DATA_DIR, "processed")
-OUTPUTS_DIR = os.path.join(BASE_DIR, "outputs")
+
+# Writable subdirectories
+CLEANED_DATA_DIR = os.path.join(WRITABLE_ROOT, "data", "cleaned")
+REJECTED_DATA_DIR = os.path.join(WRITABLE_ROOT, "data", "rejected")
+PROCESSED_DATA_DIR = os.path.join(WRITABLE_ROOT, "data", "processed")
+OUTPUTS_DIR = os.path.join(WRITABLE_ROOT, "outputs")
 
 # File Paths
 CSV_PATH = os.path.join(RAW_DATA_DIR, "events.csv")
