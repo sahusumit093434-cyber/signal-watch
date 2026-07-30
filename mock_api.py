@@ -25,7 +25,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse, parse_qs
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DATA_FILE = os.path.join(HERE, "events_api.json")
+DATA_FILE = os.path.join(HERE, "data", "raw", "events_api.json")
 
 with open(DATA_FILE, encoding="utf-8") as fh:
     EVENTS = json.load(fh)
