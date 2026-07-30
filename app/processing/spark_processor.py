@@ -96,11 +96,11 @@ def process_risk_scores(reference_date=REFERENCE_DATE):
     window_spec = Window.partitionBy("company_name").orderBy(F.col("event_risk_score").desc())
     df_ranked = df_event_scores.withColumn("row_num", F.row_number().over(window_spec))
 
-    # Take top 5 events
-    df_top_5 = df_ranked.filter(F.col("row_num") <= 5)
+    # Take top 10 events
+    df_top_10 = df_ranked.filter(F.col("row_num") <= 10)
 
-    # Average of top 5 (or fewer)
-    df_company_avg = df_top_5.groupBy("company_name").agg(
+    # Average of top 10 (or fewer)
+    df_company_avg = df_top_10.groupBy("company_name").agg(
         F.round(F.mean("event_risk_score"), 2).alias("risk_score")
     )
 

@@ -113,18 +113,23 @@ def test_risk_score_calculation(spark):
     assert results["Company D"] == 100.0
 
 def test_company_risk_score_averaging(spark):
-    # Company with more than 5 events. Should average only the 5 highest.
-    # Top 5: 90, 80, 70, 60, 50. Avg = 70.0. Level = HIGH.
+    # Company with more than 10 events. Should average only the 10 highest.
+    # Top 10: 90, 85, 80, 75, 70, 65, 60, 55, 50, 45. Avg = 67.5. Level = MEDIUM.
     data = [
         ("MultiCorp", 90.0),
+        ("MultiCorp", 85.0),
         ("MultiCorp", 80.0),
+        ("MultiCorp", 75.0),
         ("MultiCorp", 70.0),
+        ("MultiCorp", 65.0),
         ("MultiCorp", 60.0),
+        ("MultiCorp", 55.0),
         ("MultiCorp", 50.0),
+        ("MultiCorp", 45.0),
         ("MultiCorp", 40.0),
         ("MultiCorp", 30.0),
         
-        # Company with fewer than 5 events. Should average all valid events.
+        # Company with fewer than 10 events. Should average all valid events.
         # Scores: 30, 40. Avg = 35.0. Level = LOW.
         ("FewCorp", 30.0),
         ("FewCorp", 40.0),
@@ -136,9 +141,9 @@ def test_company_risk_score_averaging(spark):
     from pyspark.sql import Window
     window_spec = Window.partitionBy("company_name").orderBy(F.col("event_risk_score").desc())
     df_ranked = df.withColumn("row_num", F.row_number().over(window_spec))
-    df_top_5 = df_ranked.filter(F.col("row_num") <= 5)
+    df_top_10 = df_ranked.filter(F.col("row_num") <= 10)
     
-    df_company_avg = df_top_5.groupBy("company_name").agg(
+    df_company_avg = df_top_10.groupBy("company_name").agg(
         F.round(F.mean("event_risk_score"), 2).alias("risk_score")
     )
     
@@ -152,5 +157,5 @@ def test_company_risk_score_averaging(spark):
     results_raw = df_company_final.toPandas().set_index("company_name")[["risk_score", "risk_level"]].to_dict('index')
     results = {k: (v["risk_score"], v["risk_level"]) for k, v in results_raw.items()}
     
-    assert results["MultiCorp"] == (70.0, "HIGH")
+    assert results["MultiCorp"] == (67.5, "MEDIUM")
     assert results["FewCorp"] == (35.0, "LOW")

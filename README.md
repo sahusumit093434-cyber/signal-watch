@@ -168,8 +168,8 @@ Where **Recency Weight** represents the age of the event relative to the pipelin
 * **More than 30 days old**: Weight = `0.6`
 
 ### Company-Level Risk Score
-$$\text{Company Risk Score} = \text{Average of the company's 5 highest event risk scores}$$
-* If a company has **fewer than five events**, we average all valid events.
+$$\text{Company Risk Score} = \text{Average of the company's 10 highest event risk scores}$$
+* If a company has **fewer than ten events**, we average all valid events.
 * Scores are rounded to **2 decimal places**.
 
 ### Risk Classification
